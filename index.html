@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invoice Generator</title>
+    <script>
+      // Show any startup error on the page itself (helps when the page looks blank)
+      if (location.protocol === 'file:') {
+        document.addEventListener('DOMContentLoaded', function () {
+          document.getElementById('root').innerHTML =
+            '<p style="font:16px sans-serif;padding:20px;color:#b00">Do not open this file directly. In the terminal run <b>npm run dev</b>, then open the http://localhost address it prints.</p>';
+        });
+      }
+      window.addEventListener('error', function (e) {
+        var r = document.getElementById('root');
+        if (r) r.insertAdjacentHTML('beforeend', '<pre style="color:#b00;padding:20px;white-space:pre-wrap">Error: ' + e.message + '</pre>');
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"><p style="font:16px sans-serif;padding:20px">Loading app... If this message stays, the app script did not start. Check that <b>npm run dev</b> is running.</p></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
